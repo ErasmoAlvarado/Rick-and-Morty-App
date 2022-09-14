@@ -40,6 +40,7 @@ dependencies:
   build_runner: ^2.2.0
   flutter_speed_dial: ^6.0.0
   connectivity_plus: ^2.3.6+1
+  flutter_riverpod: ^1.0.4
  
 
 dev_dependencies:

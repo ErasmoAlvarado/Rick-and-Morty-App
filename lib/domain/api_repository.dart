@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:wikisanchez/domain/character_model.dart';
+import 'package:wikisanchez/domain/api_model.dart';
 
 class CharacterRepositories {
   Future<List<Result>> getDataList(String url) async {
