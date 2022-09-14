@@ -1,58 +1,52 @@
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:wikisanchez/provider/tabProvider.dart';
+import 'package:wikisanchez/view/homePage/widget/HomePersintentHeader.dart';
 
 
-class HomePage extends StatefulWidget {
-   const HomePage({Key? key}) : super(key: key);
-
-  @override
-  State<HomePage> createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
- 
+class HomePage extends ConsumerWidget {
+  const HomePage({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
-       body: CustomScrollView(
+      body: CustomScrollView(
           slivers: [
             //appbar
-            SliverAppBar(
-              title: const Text(
-                'WikiSanchez',
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              backgroundColor: Colors.transparent,
-              elevation: 0,
-              centerTitle: true,
-              leading: Padding(
-                padding: const EdgeInsets.all(0),
-                child: IconButton(
-                    splashRadius: 25,
-                    onPressed: () {},
-                    icon: const FaIcon(FontAwesomeIcons.list)),
-              ),
-              actions: [
-                Padding(
-                  padding: const EdgeInsets.all(0),
-                  child: IconButton(
-                      splashRadius: 25,
-                      onPressed: () {},
-                      icon: const FaIcon(FontAwesomeIcons.search)),
-                )
-              ],
+            SliverPersistentHeader(pinned: true ,delegate: HomeHeader() ),
+           
+           SliverToBoxAdapter(
+            child: Text(ref.watch(tabProvider).toString()),
+           ),
+
+            StreamBuilder(
+              stream: Connectivity().onConnectivityChanged,
+              builder: (BuildContext context, AsyncSnapshot snapshotStream) {
+                
+                if (snapshotStream.data == ConnectivityResult.wifi ||
+                    snapshotStream.data == ConnectivityResult.mobile) {
+                 
+                  return  SliverList( delegate: SliverChildBuilderDelegate(
+                    (context, index) {
+                      return Text('hola');
+                    },
+                    childCount: 100
+                  ));
+                      
+
+                
+                } else {
+                  return SliverToBoxAdapter(
+                      child: Text('chao'));
+                }
+              },
             ),
 
             
-
-            
           ],
-        ),
+        )
     );
   }
 }
