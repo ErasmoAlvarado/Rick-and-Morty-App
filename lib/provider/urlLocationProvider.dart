@@ -1,5 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-final urlLocationProvider = Provider<String>((ref) {
+final urlLocationProvider = StateProvider((ref) {
   return 'https://rickandmortyapi.com/api/location';
 });

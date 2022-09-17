@@ -16,12 +16,12 @@ class ApiModel {
   });
 
   Info info;
-  List<Result> results;
+  List<CharacterResult> results;
 
   factory ApiModel.fromJson(Map<String, dynamic> json) => ApiModel(
         info: Info.fromJson(json["info"]),
         results:
-            List<Result>.from(json["results"].map((x) => Result.fromJson(x))),
+            List<CharacterResult>.from(json["results"].map((x) => CharacterResult.fromJson(x))),
       );
 
   Map<String, dynamic> toJson() => {
@@ -58,8 +58,8 @@ class Info {
       };
 }
 
-class Result {
-  Result({
+class CharacterResult {
+  CharacterResult({
     required this.id,
     required this.name,
     required this.status,
@@ -87,7 +87,7 @@ class Result {
   String url;
   DateTime created;
 
-  factory Result.fromJson(Map<String, dynamic> json) => Result(
+  factory CharacterResult.fromJson(Map<String, dynamic> json) => CharacterResult(
         id: json["id"],
         name: json["name"],
         status: statusValues.map[json["status"]],
