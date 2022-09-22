@@ -7,10 +7,11 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:sizer/sizer.dart';
 import 'package:wikisanchez/provider/tabProvider.dart';
+import 'package:wikisanchez/view/homePage/widget/SearchBarDelagate.dart';
 
 class HomeHeader extends SliverPersistentHeaderDelegate{
   
-  double maxH = 14.5.h;
+  double maxH = 16.h;
   double minH = 8.h;
 
   @override
@@ -41,9 +42,13 @@ class HomeHeader extends SliverPersistentHeaderDelegate{
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Icon(Icons.wb_sunny_rounded, size: 4.h),
+                          IconButton(onPressed: () {
+                            print('something is good');
+                          }, icon: Icon(Icons.videogame_asset_rounded, size: 4.h)),
                           Text('WikiSanchez', style: TextStyle(fontSize: 3.5.h, fontWeight: FontWeight.bold)),
-                          Icon(Icons.search_rounded, size: 4.h,)
+                           IconButton(onPressed: () {
+                             showSearch(context: context, delegate: searchBar());
+                           }, icon: Icon(Icons.search_rounded, size: 4.h,))
                         ],
                       ),
                     ),

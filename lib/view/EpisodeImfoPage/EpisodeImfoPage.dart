@@ -45,9 +45,10 @@ class _EpisodeImfoPageState extends ConsumerState<EpisodeImfoPage> {
           ? Colors.grey[200]
           : Colors.black,
             centerTitle: true,
-            title: Text(widget.name, style: TextStyle(fontSize: 2.h, fontWeight:FontWeight.bold ),),
+            title: Text(widget.name, style: TextStyle(fontSize: 3.5.h, fontWeight:FontWeight.bold ),),
             pinned: true,
           ),
+          
 
           SliverToBoxAdapter(
             child: Column(

@@ -30,7 +30,7 @@ class _ErrorInternetWidgetState extends State<ErrorInternetWidget> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        SizedBox(height: 6.h,),
+        SizedBox(height: 12.h,),
         SizedBox(
           height: 50.h,
           child: Stack(
@@ -44,10 +44,10 @@ class _ErrorInternetWidgetState extends State<ErrorInternetWidget> {
                 child: Column(
                  
                   children: [
-                     Text(resultList[index][1], style: TextStyle(fontWeight: FontWeight.bold, letterSpacing: 0.4, fontSize: 20.sp),),
+                     Text(resultList[index][1], style: TextStyle(fontWeight: FontWeight.bold, letterSpacing: 0.4, fontSize: 5.h),),
                       Opacity(
                         opacity: 0.7,
-                        child: Text('no interntet connection',style: TextStyle(fontWeight: FontWeight.bold, letterSpacing: 0.4, fontSize: 12.sp)))
+                        child: Text('no interntet connection',style: TextStyle(fontWeight: FontWeight.bold, letterSpacing: 0.4, fontSize: 1.h)))
                   ],
                 ),
               )

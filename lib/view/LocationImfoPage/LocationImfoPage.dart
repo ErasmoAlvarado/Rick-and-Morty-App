@@ -35,6 +35,7 @@ class _LocationImfoPageState extends ConsumerState<LocationImfoPage> {
 
   @override
   Widget build(BuildContext context) {
+    print(widget.residents.toString());
     return Scaffold(
       body: CustomScrollView(
         slivers: [
@@ -43,7 +44,7 @@ class _LocationImfoPageState extends ConsumerState<LocationImfoPage> {
           ? Colors.grey[200]
           : Colors.black,
             centerTitle: true,
-            title: Text(widget.name, style: TextStyle(fontSize: 2.h, fontWeight:FontWeight.bold ),),
+            title: Text(widget.name, style: TextStyle(fontSize: 3.5.h, fontWeight:FontWeight.bold ),),
             pinned: true,
           ),
 
@@ -82,18 +83,29 @@ class _LocationImfoPageState extends ConsumerState<LocationImfoPage> {
                 ),
                   ),
 
+                  
+
             
             ],
           ),
          ),
-           FutureBuilder(
+      widget.residents.toString() != '[]'
+      ?FutureBuilder(
       future: ref.watch(apiProvider).getCharacterResult('https://rickandmortyapi.com/api/character/${getListData()}'),
       builder: (context, snapshot) {
       if(snapshot.connectionState == ConnectionState.done){
-          return SliverList(
+         
+            int length = snapshot.data!.length;
+            return SliverList(
           delegate:SliverChildBuilderDelegate(
+              
+
             (context, index) {
-              return CharacterListile(
+             
+                                
+
+          print(length);
+                return CharacterListile(
               url: snapshot.data[index].image, 
               index: snapshot.data[index].id.toString(), 
               title: snapshot.data[index].name,
@@ -105,14 +117,18 @@ class _LocationImfoPageState extends ConsumerState<LocationImfoPage> {
                   location: snapshot.data[index].location,
                   origin: snapshot.data[index].origin, 
                   species: snapshot.data[index].species,
-                  status: snapshot.data[index].status,
-                  gender: snapshot.data[index].gender
+                  status: snapshot.data[index].status  ,
+                  gender: snapshot.data[index].gender ,
                ),
                );
+              
             },
-            childCount: snapshot.data!.length
+            childCount: length
+            
           ) 
           );
+          
+          
         }
 
         if (snapshot.connectionState == ConnectionState.waiting) {
@@ -127,6 +143,20 @@ class _LocationImfoPageState extends ConsumerState<LocationImfoPage> {
         }
 
     }, )
+      :SliverToBoxAdapter(
+        child: Container(
+          height: 53.h,
+          child: Stack(
+            alignment: Alignment.center,
+            children: [
+        
+              Positioned(top: 20, child: Image.asset('assets/pizzaMorty.png', height: 43.h,)),
+              Positioned(bottom: 35, child: Text('Empty List', style: TextStyle(fontWeight: FontWeight.bold, letterSpacing: 0.4, fontSize: 4.h),)),
+              
+            ],
+          ),
+        ),
+      )
         ],
         
       ),

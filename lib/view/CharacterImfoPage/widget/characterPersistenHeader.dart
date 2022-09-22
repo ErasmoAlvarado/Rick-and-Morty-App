@@ -11,7 +11,7 @@ class characterPersistenHeader extends SliverPersistentHeaderDelegate{
  
   
   double maxH = 30.h;
-  double minH = 7.5.h;
+  double minH = 7.h;
 
 
 
@@ -50,8 +50,8 @@ class characterPersistenHeader extends SliverPersistentHeaderDelegate{
         )),
       
         Positioned(
-          bottom: 12,
-          child: Text(name, style: TextStyle(fontWeight: FontWeight.bold, fontSize:  3.h ),))
+          bottom: 9,
+          child: Text(name, style: TextStyle(fontWeight: FontWeight.bold, fontSize:  3.5.h ),))
       ],
       ),
     

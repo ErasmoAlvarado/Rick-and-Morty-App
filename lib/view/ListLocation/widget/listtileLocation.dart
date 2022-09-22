@@ -29,7 +29,10 @@ class _MyListileLocationState extends State<MyListileLocation> {
   );
      },
 
-      leading: Image.asset('assets/rickIcon.png'),
+      leading: CircleAvatar(
+        backgroundColor: Colors.grey[300],
+        backgroundImage: AssetImage('assets/wallpaper.jpeg'),
+      ),
       title: Text(
         widget.title,
         style: const TextStyle(fontWeight: FontWeight.bold, letterSpacing: 0.3),

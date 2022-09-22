@@ -107,7 +107,19 @@ class HomePage extends ConsumerWidget {
                         color: Colors.black,
                       ),
                       onTap: () {
-                       print(snapshot.data['prev']);
+                        if (ref.watch(tabProvider) == 0) {
+                     ref.read(urlCharacterProvider.notifier).state = snapshot.data['prev'];                  
+                  }
+
+                   if (ref.watch(tabProvider) == 1) {
+                     ref.watch(urlEpisodeProvider.notifier).state = snapshot.data['prev']; 
+                     print(snapshot.data['next']); 
+                    
+                  }
+
+                   if (ref.watch(tabProvider) == 2) {
+                     ref.read(urlLocationProvider.notifier).state = snapshot.data['prev']; 
+                  }
                       }),
                   SpeedDialChild(
                       backgroundColor: Colors.blue,

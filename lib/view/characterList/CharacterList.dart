@@ -7,6 +7,7 @@ import 'package:wikisanchez/provider/urlLocationProvider.dart';
 import 'package:wikisanchez/view/CharacterImfoPage/CharacterImfoPage.dart';
 import 'package:wikisanchez/view/ListLocation/widget/listtileLocation.dart';
 import 'package:wikisanchez/view/characterList/widget/characterListile.dart';
+import 'package:wikisanchez/view/widget/ErrorInternetPage.dart';
 import 'package:wikisanchez/view/widget/sliverShimmer.dart';
 
 class ListCharacter extends ConsumerWidget {
@@ -49,9 +50,13 @@ class ListCharacter extends ConsumerWidget {
           return SliverShimmer();
         }
 
+        if(snapshot.connectionState == ConnectionState.none){
+          return SliverToBoxAdapter(child: ErrorInternetWidget());
+        }
+
         else{
           return SliverToBoxAdapter(
-  child: Text('hola'),
+  child: Text('como estast'),
 );
    
         }
