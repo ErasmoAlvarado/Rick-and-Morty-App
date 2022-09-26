@@ -3,10 +3,15 @@ import 'package:wikisanchez/domain/api_model.dart';
 
 class ApiRepositories {
   Future<List<CharacterResult>> getCharacterList(String url) async {
-    final response = await Dio().get(url);
+    try {
+      final response = await Dio().get(url);
     final dt = response.data['results'];
     final dtList = (dt as List).map((e) => CharacterResult.fromJson(e)).toList();
-    return dtList;
+    return dtList;    
+    } catch (e) {
+      throw 'something goes wrong';
+      
+    }
   }
 
   Future getInfo(String url) async {

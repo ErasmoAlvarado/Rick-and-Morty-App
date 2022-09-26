@@ -6,7 +6,7 @@ class MyTheme {
   static final darkTheme = ThemeData(
       colorScheme: const ColorScheme.dark(),
       //appbar theme
-      appBarTheme: AppBarTheme(
+      appBarTheme: const AppBarTheme(
           titleTextStyle: TextStyle(
         fontWeight: FontWeight.bold,
         
@@ -16,6 +16,7 @@ class MyTheme {
 
   static final lightTheme = ThemeData(
       colorScheme: const ColorScheme.light(),
+      
     
       //appbar theme
       appBarTheme: const AppBarTheme(

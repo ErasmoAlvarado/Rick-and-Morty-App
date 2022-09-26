@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:sizer/sizer.dart';
 import 'package:wikisanchez/provider/apiProvider.dart';
 import 'package:wikisanchez/provider/urlChracterProvider.dart';
-import 'package:wikisanchez/provider/urlLocationProvider.dart';
 import 'package:wikisanchez/view/CharacterImfoPage/CharacterImfoPage.dart';
-import 'package:wikisanchez/view/ListLocation/widget/listtileLocation.dart';
 import 'package:wikisanchez/view/characterList/widget/characterListile.dart';
 import 'package:wikisanchez/view/widget/ErrorInternetPage.dart';
 import 'package:wikisanchez/view/widget/sliverShimmer.dart';
@@ -47,15 +44,15 @@ class ListCharacter extends ConsumerWidget {
         }
 
         if (snapshot.connectionState == ConnectionState.waiting) {
-          return SliverShimmer();
+          return const SliverShimmer();
         }
 
         if(snapshot.connectionState == ConnectionState.none){
-          return SliverToBoxAdapter(child: ErrorInternetWidget());
+          return const SliverToBoxAdapter(child: ErrorInternetWidget());
         }
 
         else{
-          return SliverToBoxAdapter(
+          return const SliverToBoxAdapter(
   child: Text('como estast'),
 );
    

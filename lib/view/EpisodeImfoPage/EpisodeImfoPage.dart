@@ -4,7 +4,6 @@ import 'package:sizer/sizer.dart';
 import 'package:wikisanchez/provider/apiProvider.dart';
 import 'package:wikisanchez/view/CharacterImfoPage/CharacterImfoPage.dart';
 import 'package:wikisanchez/view/characterList/widget/characterListile.dart';
-import 'package:wikisanchez/view/homePage/homePage.dart';
 import 'package:wikisanchez/view/widget/sliverShimmer.dart';
 
 class EpisodeImfoPage extends ConsumerStatefulWidget {
@@ -25,7 +24,7 @@ class _EpisodeImfoPageState extends ConsumerState<EpisodeImfoPage> {
       for (var i = 0; i != widget.episode.length; i++) {
         String dt = widget.characters[i];
         dt = dt.substring(42);
-        result =result + '${dt},';
+        result ='$result$dt,';
       }
   
       return result;
@@ -45,7 +44,11 @@ class _EpisodeImfoPageState extends ConsumerState<EpisodeImfoPage> {
           ? Colors.grey[200]
           : Colors.black,
             centerTitle: true,
-            title: Text(widget.name, style: TextStyle(fontSize: 3.5.h, fontWeight:FontWeight.bold ),),
+            title: Text(widget.name, style: TextStyle(fontSize: 3.5.h, fontWeight:FontWeight.bold,
+            color:  Theme.of(context).brightness == Brightness.light
+          ? Colors.black
+          : Colors.white,
+             ),),
             pinned: true,
           ),
           
@@ -54,27 +57,27 @@ class _EpisodeImfoPageState extends ConsumerState<EpisodeImfoPage> {
             child: Column(
               children: [
                 ListTile(
-                  title: Text('Name',
+                  title: const Text('Name',
                 style: TextStyle(fontWeight: FontWeight.bold, ),
                 ),
                 trailing: Text(widget.name,
-                 style: TextStyle(fontWeight: FontWeight.bold, color: Color.fromARGB(255, 74, 221, 67) ,),)
+                 style: const TextStyle(fontWeight: FontWeight.bold, color: Color.fromARGB(255, 74, 221, 67) ,),)
                 ),
                 ListTile(
-                  title: Text('Air Date',
+                  title: const Text('Air Date',
                 style: TextStyle(fontWeight: FontWeight.bold, ),
                 ),
                 trailing: Text(widget.airDate,
-                 style: TextStyle(fontWeight: FontWeight.bold, color: Color.fromARGB(255, 74, 221, 67) ),)
+                 style: const TextStyle(fontWeight: FontWeight.bold, color: Color.fromARGB(255, 74, 221, 67) ),)
                 ),
                 ListTile(
-                  title: Text('Episode',
+                  title: const Text('Episode',
                 style: TextStyle(fontWeight: FontWeight.bold, ),
                 ),
                 trailing: Text(widget.episode,
-                 style: TextStyle(fontWeight: FontWeight.bold, color: Color.fromARGB(255, 74, 221, 67) ),)
+                 style: const TextStyle(fontWeight: FontWeight.bold, color: Color.fromARGB(255, 74, 221, 67) ),)
                 ),
-                 Divider(),
+                 const Divider(),
 
                 
                   ListTile(
@@ -115,11 +118,11 @@ FutureBuilder(
         }
 
         if (snapshot.connectionState == ConnectionState.waiting) {
-          return SliverShimmer();
+          return const SliverShimmer();
         }
 
         else{
-          return SliverToBoxAdapter(
+          return const SliverToBoxAdapter(
   child: Text('hola'),
 );
    

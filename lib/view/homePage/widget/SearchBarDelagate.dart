@@ -40,13 +40,13 @@ class searchBar extends SearchDelegate{
 
    Icon switchIcon(WidgetRef ref){
     if(ref.watch(SearchOptionProvider) == 'character'){
-      return Icon(Icons.person_rounded, color: Color.fromARGB(255, 74, 221, 67));
+      return const Icon(Icons.person_rounded, color: Color.fromARGB(255, 74, 221, 67));
     }
      if(ref.watch(SearchOptionProvider) == 'location'){
-      return Icon(Icons.location_city_rounded, color: Color.fromARGB(255, 74, 221, 67));
+      return const Icon(Icons.location_city_rounded, color: Color.fromARGB(255, 74, 221, 67));
     }
     else{
-      return Icon(Icons.tv_rounded, color: Color.fromARGB(255, 74, 221, 67));
+      return const Icon(Icons.tv_rounded, color: Color.fromARGB(255, 74, 221, 67));
     }
     
    }
@@ -84,19 +84,19 @@ class searchBar extends SearchDelegate{
                    
                    IconButton(onPressed: () {
                    ref.watch(urlSearchProvider(query).notifier).state = snapshot.data['prev'];
-                   }, icon: Icon(FontAwesomeIcons.arrowLeft)),
+                   }, icon: const Icon(FontAwesomeIcons.arrowLeft)),
             
                    IconButton(onPressed: () {
                       
                       ref.watch(urlSearchProvider(query).notifier).state = snapshot.data['next'];
                       
                     
-                   }, icon: Icon(FontAwesomeIcons.arrowRight)),
+                   }, icon: const Icon(FontAwesomeIcons.arrowRight)),
             
             
                     IconButton(onPressed: () {
                    showModalBottomSheet(
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.only(
+                    shape: const RoundedRectangleBorder(borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(30),
                       topRight: Radius.circular(30)
                     )),
@@ -115,8 +115,8 @@ class searchBar extends SearchDelegate{
                    ref.read(SearchOptionProvider.notifier).state = 'character' ;
                    print(ref.watch(urlSearchProvider(query)));
                   },
-                      title: Text('Characters'),
-                      leading: Icon(iconOption[0], color:  Color.fromARGB(255, 74, 221, 67),),
+                      title: const Text('Characters'),
+                      leading: Icon(iconOption[0], color:  const Color.fromARGB(255, 74, 221, 67),),
                     ),
             
                      ListTile(
@@ -127,8 +127,8 @@ class searchBar extends SearchDelegate{
                        shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(30),
                   ),
-                      title: Text('Locations'),
-                      leading: Icon(iconOption[1], color:  Color.fromARGB(255, 74, 221, 67),),
+                      title: const Text('Locations'),
+                      leading: Icon(iconOption[1], color:  const Color.fromARGB(255, 74, 221, 67),),
                     ),
             
                      ListTile(
@@ -139,8 +139,8 @@ class searchBar extends SearchDelegate{
                    ref.read(SearchOptionProvider.notifier).state = 'episode' ;
                    print(ref.watch(urlSearchProvider(query)));
                     },
-                      title: Text('Episodes'),
-                      leading: Icon(iconOption[2], color:  Color.fromARGB(255, 74, 221, 67),),
+                      title: const Text('Episodes'),
+                      leading: Icon(iconOption[2], color:  const Color.fromARGB(255, 74, 221, 67),),
                     ),
                     
                     SizedBox(height: 2.h,)
@@ -167,7 +167,7 @@ class searchBar extends SearchDelegate{
     // TODO: implement buildLeading
   return IconButton(onPressed: (){
     Navigator.of(context).pop();
-  }, icon: Icon(Icons.arrow_back));
+  }, icon: const Icon(Icons.arrow_back));
   }
   
   @override
@@ -185,7 +185,7 @@ class searchBar extends SearchDelegate{
           //connection snaps===
            if(snapshot.connectionState == ConnectionState.done){
              if(snapshot.data ==  null){
-              return Container(
+              return SizedBox(
           height: 70.h,
           child: Stack(
             alignment: Alignment.center,
@@ -286,7 +286,7 @@ class searchBar extends SearchDelegate{
            }
 
            else{
-            return ErrorInternetWidget();
+            return const ErrorInternetWidget();
            }
 
 
@@ -309,7 +309,7 @@ class searchBar extends SearchDelegate{
           //connection snaps===
            if(snapshot.connectionState == ConnectionState.done){
              if(snapshot.data ==  null){
-              return Container(
+              return SizedBox(
           height: 70.h,
           child: Stack(
             alignment: Alignment.center,
@@ -410,7 +410,7 @@ class searchBar extends SearchDelegate{
            }
 
            else{
-            return ErrorInternetWidget();
+            return const ErrorInternetWidget();
            }
 
 

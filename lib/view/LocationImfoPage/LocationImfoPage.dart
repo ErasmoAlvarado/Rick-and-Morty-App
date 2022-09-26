@@ -27,7 +27,7 @@ class _LocationImfoPageState extends ConsumerState<LocationImfoPage> {
       for (var i = 0; i != widget.residents.length; i++) {
         String dt = widget.residents[i];
         dt = dt.substring(42);
-        result =result + '${dt},';
+        result ='$result$dt,';
       }
   
       return result;
@@ -44,7 +44,11 @@ class _LocationImfoPageState extends ConsumerState<LocationImfoPage> {
           ? Colors.grey[200]
           : Colors.black,
             centerTitle: true,
-            title: Text(widget.name, style: TextStyle(fontSize: 3.5.h, fontWeight:FontWeight.bold ),),
+            title: Text(widget.name, style: TextStyle(fontSize: 3.5.h, fontWeight:FontWeight.bold,
+            color:  Theme.of(context).brightness == Brightness.light
+          ? Colors.black
+          : Colors.white,
+             ),),
             pinned: true,
           ),
 
@@ -52,29 +56,30 @@ class _LocationImfoPageState extends ConsumerState<LocationImfoPage> {
           child: Column(
             children: [
               ListTile(
-                  title: Text('Name',
+                  title: const Text('Name',
                 style: TextStyle(fontWeight: FontWeight.bold, ),
+                
                 ),
                 trailing: Text(widget.name,
-                 style: TextStyle(fontWeight: FontWeight.bold, color: Color.fromARGB(255, 74, 221, 67) ,),)
+                 style: const TextStyle(fontWeight: FontWeight.bold, color: Color.fromARGB(255, 74, 221, 67) ,),)
                 ),
 
                 ListTile(
-                  title: Text('Type',
+                  title: const Text('Type',
                 style: TextStyle(fontWeight: FontWeight.bold, ),
                 ),
                 trailing: Text(widget.type,
-                 style: TextStyle(fontWeight: FontWeight.bold, color: Color.fromARGB(255, 74, 221, 67) ,),)
+                 style: const TextStyle(fontWeight: FontWeight.bold, color: Color.fromARGB(255, 74, 221, 67) ,),)
                 ),
 
                 ListTile(
-                  title: Text('Dimension',
+                  title: const Text('Dimension',
                 style: TextStyle(fontWeight: FontWeight.bold, ),
                 ),
                 trailing: Text(widget.dimension,
-                 style: TextStyle(fontWeight: FontWeight.bold, color: Color.fromARGB(255, 74, 221, 67) ,),)
+                 style: const TextStyle(fontWeight: FontWeight.bold, color: Color.fromARGB(255, 74, 221, 67) ,),)
                 ),
-                  Divider(),
+                  const Divider(),
 
                 
                   ListTile(
@@ -132,11 +137,11 @@ class _LocationImfoPageState extends ConsumerState<LocationImfoPage> {
         }
 
         if (snapshot.connectionState == ConnectionState.waiting) {
-          return SliverShimmer();
+          return const SliverShimmer();
         }
 
         else{
-          return SliverToBoxAdapter(
+          return const SliverToBoxAdapter(
   child: Text('hola'),
 );
    
@@ -144,7 +149,7 @@ class _LocationImfoPageState extends ConsumerState<LocationImfoPage> {
 
     }, )
       :SliverToBoxAdapter(
-        child: Container(
+        child: SizedBox(
           height: 53.h,
           child: Stack(
             alignment: Alignment.center,

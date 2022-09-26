@@ -8,6 +8,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:sizer/sizer.dart';
 import 'package:wikisanchez/provider/tabProvider.dart';
 import 'package:wikisanchez/view/homePage/widget/SearchBarDelagate.dart';
+import 'package:wikisanchez/view/quizPage/quizPage.dart';
 
 class HomeHeader extends SliverPersistentHeaderDelegate{
   
@@ -25,7 +26,7 @@ class HomeHeader extends SliverPersistentHeaderDelegate{
       child: Container(
       
       color: Theme.of(context).brightness == Brightness.light
-            ? Color.fromARGB(255, 245, 245, 245)
+            ? const Color.fromARGB(255, 245, 245, 245)
             : Colors.black,
       
       
@@ -35,15 +36,18 @@ class HomeHeader extends SliverPersistentHeaderDelegate{
                 top: 10,
                 child: Opacity(
                   opacity: appbarOpacity,
-                  child: Container(
+                  child: SizedBox(
                      width: MediaQuery.of(context).size.width,
                     child: Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 15, vertical: 2 ),
+                      padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 2 ),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           IconButton(onPressed: () {
-                            print('something is good');
+                            Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => const QuizPage()),
+                            );
                           }, icon: Icon(Icons.videogame_asset_rounded, size: 4.h)),
                           Text('WikiSanchez', style: TextStyle(fontSize: 3.5.h, fontWeight: FontWeight.bold)),
                            IconButton(onPressed: () {
@@ -56,7 +60,7 @@ class HomeHeader extends SliverPersistentHeaderDelegate{
                 )),
               Positioned(
                 bottom: 7,
-                child: Container(
+                child: SizedBox(
                   width: MediaQuery.of(context).size.width,
                   child: Consumer(
                     builder: (context, ref, child) {
@@ -69,7 +73,7 @@ class HomeHeader extends SliverPersistentHeaderDelegate{
                         ref.read(tabProvider.notifier).state = 0;
                       },
                       child: AnimatedContainer(
-                        duration: Duration(milliseconds: 300),
+                        duration: const Duration(milliseconds: 300),
                         
                         height: ref.watch(tabProvider) == 0
                         ?6.5.h
@@ -78,9 +82,9 @@ class HomeHeader extends SliverPersistentHeaderDelegate{
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(60),
                           color:ref.watch(tabProvider) == 0
-                          ?Color.fromARGB(255, 74, 221, 67)
+                          ?const Color.fromARGB(255, 74, 221, 67)
                           : Colors.transparent,
-                          border: Border.all(color:Color.fromARGB(255, 74, 221, 67) , width: 2.5 )
+                          border: Border.all(color:const Color.fromARGB(255, 74, 221, 67) , width: 2.5 )
                         ),
                         child: Center(
                           child: Text('Character', style: TextStyle(
@@ -88,7 +92,7 @@ class HomeHeader extends SliverPersistentHeaderDelegate{
                             fontSize: 2.h,
                             color: ref.watch(tabProvider) == 0
                             ? Colors.white
-                            : Color.fromARGB(255, 74, 221, 67),
+                            : const Color.fromARGB(255, 74, 221, 67),
                           ),),
                         ),
                       ),
@@ -99,7 +103,7 @@ class HomeHeader extends SliverPersistentHeaderDelegate{
                         ref.read(tabProvider.notifier).state = 1;
                       },
                       child: AnimatedContainer(
-                        duration: Duration(milliseconds: 300),
+                        duration: const Duration(milliseconds: 300),
                         
                         height: ref.watch(tabProvider) == 1
                         ?6.5.h
@@ -108,9 +112,9 @@ class HomeHeader extends SliverPersistentHeaderDelegate{
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(60),
                           color:ref.watch(tabProvider) == 1
-                          ?Color.fromARGB(255, 74, 221, 67)
+                          ?const Color.fromARGB(255, 74, 221, 67)
                           : Colors.transparent,
-                          border: Border.all(color:Color.fromARGB(255, 74, 221, 67) , width: 2.5 )
+                          border: Border.all(color:const Color.fromARGB(255, 74, 221, 67) , width: 2.5 )
                         ),
                         child: Center(
                           child: Text('Episode', style: TextStyle(
@@ -118,7 +122,7 @@ class HomeHeader extends SliverPersistentHeaderDelegate{
                             fontSize: 2.h,
                             color: ref.watch(tabProvider) == 1
                             ? Colors.white
-                            : Color.fromARGB(255, 74, 221, 67),
+                            : const Color.fromARGB(255, 74, 221, 67),
                           ),),
                         ),
                       ),
@@ -129,7 +133,7 @@ class HomeHeader extends SliverPersistentHeaderDelegate{
                         ref.read(tabProvider.notifier).state = 2;
                       },
                       child: AnimatedContainer(
-                        duration: Duration(milliseconds: 300),
+                        duration: const Duration(milliseconds: 300),
                         
                         height: ref.watch(tabProvider) == 2
                         ?6.5.h
@@ -138,9 +142,9 @@ class HomeHeader extends SliverPersistentHeaderDelegate{
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(60),
                           color:ref.watch(tabProvider) == 2 
-                          ?Color.fromARGB(255, 74, 221, 67)
+                          ?const Color.fromARGB(255, 74, 221, 67)
                           : Colors.transparent,
-                          border: Border.all(color:Color.fromARGB(255, 74, 221, 67) , width: 2.5  )
+                          border: Border.all(color:const Color.fromARGB(255, 74, 221, 67) , width: 2.5  )
                         
                       
         
@@ -152,7 +156,7 @@ class HomeHeader extends SliverPersistentHeaderDelegate{
                             fontSize: 2.h,
                             color: ref.watch(tabProvider) == 2
                             ? Colors.white
-                            : Color.fromARGB(255, 74, 221, 67),
+                            : const Color.fromARGB(255, 74, 221, 67),
                           ),),
                         ),
                       ),

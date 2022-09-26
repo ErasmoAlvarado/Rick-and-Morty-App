@@ -31,7 +31,7 @@ class _MyListileLocationState extends State<MyListileLocation> {
 
       leading: CircleAvatar(
         backgroundColor: Colors.grey[300],
-        backgroundImage: AssetImage('assets/wallpaper.jpeg'),
+        backgroundImage: const AssetImage('assets/wallpaper.jpeg'),
       ),
       title: Text(
         widget.title,

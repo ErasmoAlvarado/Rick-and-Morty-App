@@ -35,7 +35,7 @@ class characterPersistenHeader extends SliverPersistentHeaderDelegate{
         left: 0,
         child: IconButton(onPressed: (){
           Navigator.of(context).pop();
-        }, icon: Icon(Icons.arrow_back),
+        }, icon: const Icon(Icons.arrow_back),
         iconSize: 4.h,
         )),
         

@@ -30,7 +30,7 @@ class _MyListileEpisodeState extends State<MyListileEpisode> {
       },
       leading: CircleAvatar(
         backgroundColor: const Color.fromRGBO(67, 197, 60, 1),
-        child: Text(widget.id, style: TextStyle(color: Colors.white),),
+        child: Text(widget.id, style: const TextStyle(color: Colors.white),),
       ),
       title: Text(
         widget.title,

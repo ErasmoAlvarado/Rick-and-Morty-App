@@ -13,7 +13,7 @@ import 'package:wikisanchez/view/widget/sliverShimmer.dart';
 
 class CharacterImfoPage extends ConsumerStatefulWidget {
   final image,name,status, species, origin,location,episode,gender;
-   CharacterImfoPage({Key? key, required this.image, required this.name,
+   const CharacterImfoPage({Key? key, required this.image, required this.name,
    required this.episode, required this.location, required this.origin, required this.species,
    required this.status, required this.gender
    }) : super(key: key);
@@ -29,13 +29,13 @@ class _CharacterImfoPageState extends ConsumerState<CharacterImfoPage> {
 
  Widget genderIcon (){
 if(widget.gender == Gender.MALE){
-     return FaIcon(FontAwesomeIcons.male,color: Color.fromARGB(255, 74, 221, 67) );
+     return const FaIcon(FontAwesomeIcons.male,color: Color.fromARGB(255, 74, 221, 67) );
     }
     if(widget.gender == Gender.FEMALE){
-      return FaIcon(FontAwesomeIcons.female , color: Color.fromARGB(255, 74, 221, 67) ,);
+      return const FaIcon(FontAwesomeIcons.female , color: Color.fromARGB(255, 74, 221, 67) ,);
     }
     else{
-      return FaIcon(FontAwesomeIcons.question,color: Color.fromARGB(255, 74, 221, 67));
+      return const FaIcon(FontAwesomeIcons.question,color: Color.fromARGB(255, 74, 221, 67));
     }
     }
 
@@ -45,7 +45,7 @@ if(widget.gender == Gender.MALE){
       for (var i = 0; i != widget.episode.length; i++) {
         String dt = widget.episode[i];
         dt = dt.substring(40);
-        result =result + '${dt},';
+        result ='$result$dt,';
       }
   
       return result;
@@ -65,15 +65,15 @@ if(widget.gender == Gender.MALE){
               children: [
                 
                 ListTile(
-                    title: Text('Species',
+                    title: const Text('Species',
                   style: TextStyle(fontWeight: FontWeight.bold, ),
                   ),
-                  trailing: Text(widget.species, style: TextStyle(fontWeight: FontWeight.bold, color: Color.fromARGB(255, 74, 221, 67) ),)
+                  trailing: Text(widget.species, style: const TextStyle(fontWeight: FontWeight.bold, color: Color.fromARGB(255, 74, 221, 67) ),)
       
                   ),
       
                   ListTile(
-                    title: Text('Gender',
+                    title: const Text('Gender',
                   style: TextStyle(fontWeight: FontWeight.bold, ),
                   ),
                   trailing: genderIcon(),
@@ -81,22 +81,22 @@ if(widget.gender == Gender.MALE){
                   ),
       
                    ListTile(
-                    title: Text('Origin',
+                    title: const Text('Origin',
                   style: TextStyle(fontWeight: FontWeight.bold, ),
                   ),
-                  trailing: Text(widget.origin.name, style: TextStyle(fontWeight: FontWeight.bold, color: Color.fromARGB(255, 74, 221, 67) ),)
+                  trailing: Text(widget.origin.name, style: const TextStyle(fontWeight: FontWeight.bold, color: Color.fromARGB(255, 74, 221, 67) ),)
       
                   ),
                   
                   ListTile(
-                    title: Text('Location',
+                    title: const Text('Location',
                   style: TextStyle(fontWeight: FontWeight.bold, ),
                   ),
-                  trailing: Text(widget.location.name, style: TextStyle(fontWeight: FontWeight.bold, color: Color.fromARGB(255, 74, 221, 67) ),)
+                  trailing: Text(widget.location.name, style: const TextStyle(fontWeight: FontWeight.bold, color: Color.fromARGB(255, 74, 221, 67) ),)
       
                   ),
       
-                  Divider(),
+                  const Divider(),
       
                   
                     ListTile(
@@ -135,11 +135,11 @@ if(widget.gender == Gender.MALE){
           }
       
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return SliverShimmer();
+            return const SliverShimmer();
           }
       
           else{
-            return SliverToBoxAdapter(
+            return const SliverToBoxAdapter(
         child: Text('hola'),
       );
          

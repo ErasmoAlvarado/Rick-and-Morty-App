@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:sizer/sizer.dart';
 import 'package:wikisanchez/provider/apiProvider.dart';
 import 'package:wikisanchez/provider/urlLocationProvider.dart';
 import 'package:wikisanchez/view/ListLocation/widget/listtileLocation.dart';
@@ -39,11 +38,11 @@ class ListLocation extends ConsumerWidget {
         }
 
         if (snapshot.connectionState == ConnectionState.waiting) {
-          return SliverShimmer();
+          return const SliverShimmer();
         }
 
         else{
-          return SliverToBoxAdapter(
+          return const SliverToBoxAdapter(
   child: Text('hola'),
 );
    
