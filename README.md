@@ -9,10 +9,9 @@ and [Axel Fuhrmann](https://github.com/afuh) creator of
 # Structure
 
 ## home page
-https://i.imgur.com/hlN7VY3.jpg
 
-![home white theme](https://i.imgur.com/M7niZhJ.jpg "home white theme")
-![home black theme](https://i.imgur.com/hlN7VY3.jpg "home black theme")
+![home white theme](https://i.imgur.com/M7niZhJ.jpg "home white theme") ![home black theme](https://i.imgur.com/hlN7VY3.jpg "home black theme")
+
 
 ## character page
 ![character white theme](https://i.imgur.com/Gg010kc.jpg "character white theme")
